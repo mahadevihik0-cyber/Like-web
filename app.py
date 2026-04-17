@@ -14,8 +14,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # UPI Payment Details
-UPI_ID = "mmohendra@fam"
-UPI_NAME = "M Mahendra"
+UPI_ID = "mmahendra@fam"
+UPI_NAME = "Akshay"
 
 # Admin Credentials
 ADMIN_USERNAME = "mahi"
