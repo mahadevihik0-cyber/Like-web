@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire Likes Booster - Instant Likes</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal active">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-user-lock"></i> Admin Login</h2>
+                <span class="close" onclick="toggleLoginModal()">&times;</span>
+            </div>
+            <form id="loginForm">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container" id="mainContent">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-fire"></i>
+                <h1>FF Likes Booster</h1>
+            </div>
+            <button class="admin-btn" onclick="toggleLoginModal()">
+                <i class="fas fa-cog"></i> Admin
+            </button>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>🚀 Instant Free Fire Likes</h2>
+                <p>Get unlimited likes on your Free Fire profile instantly!</p>
+                <div class="stats">
+                    <div class="stat">
+                        <span id="totalUsers">10K+</span>
+                        <small>Total Users</small>
+                    </div>
+                    <div class="stat">
+                        <span id="totalLikes">1M+</span>
+                        <small>Likes Given</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booster Form -->
+        <section class="booster">
+            <div class="booster-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-bolt"></i> Boost Your Likes Now</h3>
+                </div>
+                <form id="likeForm" class="booster-form">
+                    <div class="input-group large">
+                        <label>Player UID</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-id-card"></i>
+                            <input type="text" id="uid" placeholder="Enter your Free Fire UID" required>
+                        </div>
+                    </div>
+                    <div class="input-group large">
+                        <label>Server Region</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-globe"></i>
+                            <select id="region" required>
+                                <option value="">Select Region</option>
+                                <option value="india">India (IN)</option>
+                                <option value="indonesia">Indonesia (ID)</option>
+                                <option value="thailand">Thailand (TH)</option>
+                                <option value="singapore">Singapore (SG)</option>
+                                <option value="malaysia">Malaysia (MY)</option>
+                                <option value="philippines">Philippines (PH)</option>
+                                <option value="brazil">Brazil (BR)</option>
+                                <option value="europe">Europe (EU)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-boost" id="boostBtn">
+                        <span class="btn-text">🚀 Boost Likes</span>
+                        <div class="loading" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Boosting...
+                        </div>
+                    </button>
+                </form>
+                <div id="result" class="result"></div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <h3>✨ Why Choose Us?</h3>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Instant Delivery</h4>
+                    <p>Likes delivered within seconds</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>100% Safe</h4>
+                    <p>No risk to your account</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-infinity"></i>
+                    <h4>Unlimited</h4>
+                    <p>Boost as many times as you want</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-clock"></i>
+                    <h4>24/7 Active</h4>
+                    <p>Available anytime, anywhere</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 FF Likes Booster. Made with ❤️ for Free Fire players.</p>
+        </footer>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel hidden">
+        <div class="admin-header">
+            <h2><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h2>
+            <button class="close-admin" onclick="toggleAdminPanel()">×</button>
+        </div>
+        <div class="admin-content">
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <span id="adminTotalUsers">0</span>
+                    <small>Total Users</small>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-fire"></i>
+                    <span id="adminTotalLikes">0</span>
+                    <small>Total Likes</small>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span id="apiLatency">0ms</span>
+                    <small>API Latency</small>
+                </div>
+            </div>
+            
+            <div class="admin-section">
+                <h3>API Management</h3>
+                <div class="api-status">
+                    <div class="status-item">
+                        <span>Like API:</span>
+                        <span id="apiStatus" class="status-offline">Offline</span>
+                        <button onclick="testApi()">Test Ping</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section">
+                <h3>Add New Feature</h3>
+                <form id="newFeatureForm">
+                    <input type="text" placeholder="Feature Name" required>
+                    <input type="url" placeholder="API Endpoint" required>
+                    <select>
+                        <option>Like Booster</option>
+                        <option>Diamond Generator</option>
+                        <option>Rank Booster</option>
+                    </select>
+                    <button type="submit">Add Feature</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
